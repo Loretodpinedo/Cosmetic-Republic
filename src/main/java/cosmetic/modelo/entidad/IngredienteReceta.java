@@ -25,12 +25,26 @@ public class IngredienteReceta {
 	@OneToOne
 	private Receta receta;
 	private double porcentaje;
+	@OneToOne
+	private Precio precioPorGramo;
+	private double precioIngredienteReceta;
+
+	public double calculoPrecioIngredienteReceta() {
+		
+		precioIngredienteReceta=precioPorGramo.calculoPrecioPorGramo()*porcentaje;
+		return precioIngredienteReceta;
+	}
+	
+	
 
 	@Override
 	public String toString() {
-		return "IngredienteReceta [ingrediente=" + ingrediente + ", receta=" + receta + ", porcentaje=" + porcentaje
-				+ "]";
+		return "IngredienteReceta [id=" + id + ", ingrediente=" + ingrediente + ", receta=" + receta + ", porcentaje="
+				+ porcentaje + ", precioPorGramo=" + precioPorGramo + ", precioIngredienteReceta="
+				+ precioIngredienteReceta + "]";
 	}
+
+
 
 	public IngredienteReceta() {
 		super();
@@ -67,5 +81,23 @@ public class IngredienteReceta {
 	public void setPorcentaje(double porcentaje) {
 		this.porcentaje = porcentaje;
 	}
+
+	public Precio getPrecioPorGramo() {
+		return precioPorGramo;
+	}
+
+	public void setPrecioPorGramo(Precio precioPorGramo) {
+		this.precioPorGramo = precioPorGramo;
+	}
+
+	public double getPrecioIngredienteReceta() {
+		return precioIngredienteReceta;
+	}
+
+	public void setPrecioIngredienteReceta(double precioIngredienteReceta) {
+		this.precioIngredienteReceta = precioIngredienteReceta;
+	}
+	
+	
 
 }

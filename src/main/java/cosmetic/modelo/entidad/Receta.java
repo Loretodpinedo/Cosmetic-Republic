@@ -30,10 +30,10 @@ public class Receta {
 	@ElementCollection
 	@OneToMany(targetEntity = IngredienteReceta.class, mappedBy = "receta")
 	private List<IngredienteReceta> ingredientes;
-
+	private double precioReceta;//La suma de los precios de los ingredientes. 
 	@Override
 	public String toString() {
-		return "Receta [id=" + id + ", producto=" + producto + ", ingredientes=" + ingredientes + "]";
+		return "Receta [id=" + id + ", producto=" + producto + ", ingredientes=" + ingredientes + ", precioReceta" + "]";
 	}
 
 	public Receta() {
@@ -62,6 +62,14 @@ public class Receta {
 
 	public void setIngredientes(List<IngredienteReceta> ingredientes) {
 		this.ingredientes = ingredientes;
+	}
+
+	public double getPrecioReceta() {
+		return precioReceta;
+	}
+
+	public void setPrecioReceta(double precioReceta) {
+		this.precioReceta = precioReceta;
 	}
 
 }

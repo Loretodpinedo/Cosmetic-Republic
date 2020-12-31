@@ -12,6 +12,8 @@ import javax.persistence.Table;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+//Esta entidad esta creada para gestionar los enum del resto de entidades.
+
 @Entity
 @Table(name = "atributoCosmetico")
 @Component
@@ -26,7 +28,8 @@ public class AtributoCosmetico {
 	// Referenciar al resto de enum desde negocio, podria ser con un switch,
 	// cada case seria lo devuelto por categoriaAtributo haciendo referencia
 	// a cada uno de los enum
-	@ManyToOne
+	
+	@ManyToOne//para el mapeado con ingrediente. 
 	private ElementoCosmetico elementoCosmetico;
 
 	@Override

@@ -27,33 +27,33 @@ class AtributoCosmeticoControlador {
         return atributo.findAll();
     }
 
-    @PostMapping("/AtributosCosmetico")
-    AtributoCosmetico altaAtributoCosmetico(@RequestBody AtributoCosmetico NuevoAtributoCosmetico) {
-        return atributo.save(NuevoAtributoCosmetico);
+    @PostMapping("/AtributoCosmetico")
+    AtributoCosmetico altaAtributoCosmetico(@RequestBody AtributoCosmetico nuevoAtributoCosmetico) {
+        return atributo.save(nuevoAtributoCosmetico);
     }
 
     // Single item
-    @GetMapping("/AtributosCosmetico/{id}")
+    @GetMapping("/AtributoCosmetico/{id}")
     AtributoCosmetico obtener(@PathVariable Long id) {
 
        
         return atributo.findById(id.intValue());
     }
 
-    @PutMapping("/AtributosCosmetico/{id}")
-    AtributoCosmetico modificarAtributoCosmetico(@RequestBody AtributoCosmetico newAtributoCosmetico,
+    @PutMapping("/AtributoCosmetico/{id}")
+    AtributoCosmetico modificarAtributoCosmetico(@RequestBody AtributoCosmetico nuevoAtributoCosmetico,
             @PathVariable Long id) {
 
-        AtributoCosmetico atributo_obj = null;
-        atributo_obj = atributo.findById(id.intValue());
+        AtributoCosmetico atributoObj = null;
+        atributoObj = atributo.findById(id.intValue());
         if (atributo == null) {
-            atributo_obj = new AtributoCosmetico();
+            atributoObj = new AtributoCosmetico();
         }
 
-        atributo_obj.setNombre(newAtributoCosmetico.getNombre());
+        atributoObj.setNombre(nuevoAtributoCosmetico.getNombre());
         // atributo_obj.setNombre(newAtributoCosmetico.getNombre());
 
-        return atributo_obj;
+        return atributoObj;
 
     }
 

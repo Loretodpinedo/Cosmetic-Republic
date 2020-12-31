@@ -28,15 +28,22 @@ public class Precio {
 	@OneToOne
 	private AtributoCosmetico tienda;
 	private Date fechaCompra;
+	private double precioPorGramo;// division del precio total entre los gramos.
+	private double gramos;
+	private double precioTotal;
+
+	public double calculoPrecioPorGramo() {
+
+		precioPorGramo = precioTotal / gramos;
+		return precioPorGramo;
+
+	}
 
 	@Override
 	public String toString() {
 		return "Precio [id=" + id + ", ingrediente=" + ingrediente + ", tienda=" + tienda + ", fechaCompra="
-				+ fechaCompra + "]";
-	}
-
-	public Precio() {
-		super();
+				+ fechaCompra + ", precioPorGramo=" + precioPorGramo + ", gramos=" + gramos + ", precioTotal="
+				+ precioTotal + "]";
 	}
 
 	public int getId() {
@@ -69,6 +76,42 @@ public class Precio {
 
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCompra = fechaCreacion;
+	}
+
+	public double getGramos() {
+		return gramos;
+	}
+
+	public void setGramos(double gramos) {
+		this.gramos = gramos;
+	}
+
+	public double getPrecioTotal() {
+		return precioTotal;
+	}
+
+	public void setPrecioTotal(double precioTotal) {
+		this.precioTotal = precioTotal;
+	}
+
+	public Date getFechaCompra() {
+		return fechaCompra;
+	}
+
+	public void setFechaCompra(Date fechaCompra) {
+		this.fechaCompra = fechaCompra;
+	}
+
+	public double getPrecioPorGramo() {
+		return precioPorGramo;
+	}
+
+	public void setPrecioPorGramo(double precioPorGramo) {
+		this.precioPorGramo = precioPorGramo;
+	}
+
+	public Precio() {
+		super();
 	}
 
 }

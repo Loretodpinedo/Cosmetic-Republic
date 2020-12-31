@@ -53,7 +53,7 @@ public class IngredienteControlador {
 		return ingredienteDao.findAll();
 	}
 
-	@GetMapping("/Ingredientes/{id}")
+	@GetMapping("/Ingrediente/{id}")
 	Ingrediente buscarPorId(@PathVariable Long id) {
 		return ingredienteDao.findById(id.intValue());
 	}
